@@ -1,6 +1,6 @@
 # Should have:
-# - name
-# - money
+# - name √
+# - money √
 # - favourite song
 
 class Guest
