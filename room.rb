@@ -7,15 +7,20 @@
 
 class Room
 
-  attr_reader :capacity, :playlist
+  attr_reader :capacity, :playlist, :guests
 
   def initialize(capacity)
     @capacity = capacity
     @playlist = []
+    @guests = []
   end
 
   def add_song(song)
     @playlist << song if !@playlist.include?(song)
+  end
+
+  def add_guest(guest)
+    @guests << guest
   end
 
 end
