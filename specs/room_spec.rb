@@ -10,6 +10,7 @@ class TestRoom < MiniTest::Test
     @bohem_rhap = Song.new("Queen", "Bohemian Rhapsody")
     @i_will_survive = Song.new("Gloria Gaynor", "I Will Survive")
     @alan = Guest.new("Alan Russell", 500)
+    @marj = Guest.new("Marj Clark", 100)
     @test_room = Room.new(10)
   end
 
@@ -33,5 +34,13 @@ class TestRoom < MiniTest::Test
     @test_room.add_guest(@alan)
     assert_equal(1, @test_room.guests.count)
   end
+
+  def test_cannot_add_duplicate_guests
+    @test_room.add_guest(@alan)
+    @test_room.add_guest(@marj)
+    @test_room.add_guest(@alan)
+    assert_equal(2, @test_room.guests.count)
+  end
+
 
 end

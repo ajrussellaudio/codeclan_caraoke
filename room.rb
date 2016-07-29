@@ -20,7 +20,7 @@ class Room
   end
 
   def add_guest(guest)
-    @guests << guest
+    @guests << guest if !@guests.include?(guest)
   end
 
 end
