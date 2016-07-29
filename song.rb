@@ -1,4 +1,15 @@
 # Should have:
-# - artist
-# - title
+# - artist √
+# - title √
 # - lyrics?
+
+class Song
+
+  attr_reader :artist, :title
+
+  def initialize(artist, title)
+    @artist = artist
+    @title = title
+  end
+
+end
