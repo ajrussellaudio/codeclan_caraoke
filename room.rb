@@ -28,4 +28,14 @@ class Room
     party.each {|guest| add_guest(guest)}
   end
 
+  def spaces_left()
+    return @capacity - @guests.count
+  end
+
+  def any_spaces_left?()
+    return true if spaces_left > 0
+    return false
+  end
+
+
 end

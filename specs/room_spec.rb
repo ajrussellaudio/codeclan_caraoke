@@ -4,6 +4,8 @@ require_relative "../room"
 require_relative "../song"
 require_relative "../guest"
 
+# require "pry-byebug"
+
 class TestRoom < MiniTest::Test
 
   def setup
@@ -47,5 +49,25 @@ class TestRoom < MiniTest::Test
     @test_room.add_party(test_party)
     assert_equal(2, @test_room.guests.count)
   end
+
+  def test_can_check_for_space
+    test_party = [@alan, @marj]
+    @test_room.add_party(test_party)
+    assert_equal(8, @test_room.spaces_left)
+  end
+
+  def test_can_check_for_space__boolean
+    test_party = [@alan, @marj]
+    @test_room.add_party(test_party)
+    assert_equal(true, @test_room.any_spaces_left?)
+  end
+
+  def test_can_check_for_space__room_full
+    test_party = [@alan, @marj]
+    room_for_two = Room.new(2)
+    room_for_two.add_party(test_party)
+    assert_equal(false, room_for_two.any_spaces_left?)
+  end
+
 
 end
