@@ -42,5 +42,10 @@ class TestRoom < MiniTest::Test
     assert_equal(2, @test_room.guests.count)
   end
 
+  def test_can_add_party
+    test_party = [@alan, @marj]
+    @test_room.add_party(test_party)
+    assert_equal(2, @test_room.guests.count)
+  end
 
 end

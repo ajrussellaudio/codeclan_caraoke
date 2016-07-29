@@ -23,4 +23,8 @@ class Room
     @guests << guest if !@guests.include?(guest)
   end
 
+  def add_party(party)
+    party.each {|guest| add_guest(guest)}
+  end
+
 end
