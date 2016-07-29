@@ -1,9 +1,10 @@
 # Should have:
-# - list of guests
-# - playlist of songs
+# - list of guests √
+# - playlist of songs √
 
 # Should be able to:
-# - add song to room playlist
+# - add song to room playlist √
+# - add guests or groups to room √
 
 class Room
 

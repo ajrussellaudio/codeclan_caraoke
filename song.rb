@@ -5,11 +5,19 @@
 
 class Song
 
-  attr_reader :artist, :title
-
   def initialize(artist, title)
-    @artist = artist
-    @title = title
+    @song_info = {
+      artist: artist,
+      title: title
+    }
+  end
+
+  def artist
+    return @song_info[:artist]
+  end
+
+  def title
+    return @song_info[:title]
   end
 
 end
