@@ -69,5 +69,10 @@ class TestRoom < MiniTest::Test
     assert_equal(false, room_for_two.any_spaces_left?)
   end
 
+  def test_can_get_guests_names
+    @test_room.add_party([@alan, @marj])
+    assert_equal(["Alan Russell", "Marj Clark"], @test_room.guest_names)
+  end
+
 
 end

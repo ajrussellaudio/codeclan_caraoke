@@ -37,5 +37,9 @@ class Room
     return false
   end
 
+  def guest_names()
+    return @guests.map {|guest| guest.name}
+  end
+
 
 end

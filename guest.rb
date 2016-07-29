@@ -5,7 +5,8 @@
 
 class Guest
 
-  attr_reader :name, :cash
+  attr_reader :name
+  attr_accessor :cash
 
   def initialize(name, money)
     @name = name
