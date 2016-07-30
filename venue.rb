@@ -23,6 +23,10 @@ class Venue
     end
   end
 
+  def check_out(guest, room_index)
+    rooms[room_index].remove_guest(guest)
+  end
+
   def add_song_to_room(song, room_index)
     rooms[room_index].add_song(song)
   end

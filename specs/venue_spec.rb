@@ -63,4 +63,11 @@ class TestVenue < MiniTest::Test
     assert_equal(2, @test_venue.rooms[1].guests.count)
   end
 
+  def test_can_check_out_guest
+    test_party = [@alan, @barry]
+    @test_venue.add_party_to_room(test_party, 1)
+    @test_venue.check_out(@barry, 1)
+    assert_equal([@alan], @test_venue.rooms[1].guests)
+  end
+
 end
