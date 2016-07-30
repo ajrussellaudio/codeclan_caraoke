@@ -25,7 +25,9 @@ class Room
   end
 
   def add_party(party)
-    party.each {|guest| add_guest(guest)}
+    # superceded by Venue.add_party_to_room
+    # ...but some Room tests still use this!
+    party.each { |guest| add_guest(guest) }
   end
 
   def spaces_left()

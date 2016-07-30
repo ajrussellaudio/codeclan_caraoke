@@ -27,5 +27,13 @@ class Venue
     room.add_song(song)
   end
 
+  def add_playlist_to_room(playlist, room)
+    playlist.each { |song| add_song_to_room(song, room) }
+  end
+
+  def add_party_to_room(party, room)
+    party.each { |guest| check_in(guest, room) }
+  end
+
 
 end

@@ -16,6 +16,8 @@ class TestVenue < MiniTest::Test
     @tom = Guest.new("Tom Jones", 1000)
     @barry = Guest.new("Barry White", 1000)
     @i_will_survive = Song.new("Gloria Gaynor", "I Will Survive")
+    @bohem_rhap = @bohem_rhap = Song.new("Queen", "Bohemian Rhapsody")
+    @final_countdown = Song.new("Europe", "The Final Countdown")
     @test_venue = Venue.new(
       [@room_of_20, @room_of_10, @room_of_2]
       )
@@ -49,5 +51,16 @@ class TestVenue < MiniTest::Test
     assert_equal(1, @room_of_10.playlist.count)
   end
 
+  def test_can_add_playlist_to_room
+    playlist = [@i_will_survive, @bohem_rhap, @final_countdown]
+    @test_venue.add_playlist_to_room(playlist, @room_of_10)
+    assert_equal(3, @room_of_10.playlist.count)
+  end
+
+  def test_can_check_in_parties_of_guests
+    test_party = [@alan, @barry]
+    @test_venue.add_party_to_room(test_party, @room_of_10)
+    assert_equal(2, @room_of_10.guests.count)
+  end
 
 end
