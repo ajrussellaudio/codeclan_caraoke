@@ -28,39 +28,39 @@ class TestVenue < MiniTest::Test
   end
 
   def test_check_in
-    @test_venue.check_in(@alan, @room_of_10)
-    assert_equal(1, @room_of_10.guests.count)
+    @test_venue.check_in(@alan, 1)
+    assert_equal(1, @test_venue.rooms[1].guests.count)
     assert_equal(30, @alan.cash)
   end
 
   def test_check_in__too_skint
-    @test_venue.check_in(@marj, @room_of_10)
-    assert_equal(0, @room_of_10.guests.count)
+    @test_venue.check_in(@marj, 1)
+    assert_equal(0, @test_venue.rooms[1].guests.count)
   end
 
   def test_check_in__no_space
-    @test_venue.check_in(@barry, @room_of_2)
-    @test_venue.check_in(@tom, @room_of_2)
-    @test_venue.check_in(@alan, @room_of_2)
-    assert_equal(false, @room_of_2.any_spaces_left?)
-    assert_equal(["Barry White", "Tom Jones"], @room_of_2.guest_names)
+    @test_venue.check_in(@barry, 2)
+    @test_venue.check_in(@tom, 2)
+    @test_venue.check_in(@alan, 2)
+    assert_equal(false, @test_venue.rooms[2].any_spaces_left?)
+    assert_equal(["Barry White", "Tom Jones"], @test_venue.rooms[2].guest_names)
   end
 
   def test_can_add_song_to_room
-    @test_venue.add_song_to_room(@i_will_survive, @room_of_10)
-    assert_equal(1, @room_of_10.playlist.count)
+    @test_venue.add_song_to_room(@i_will_survive, 1)
+    assert_equal(1, @test_venue.rooms[1].playlist.size)
   end
 
   def test_can_add_playlist_to_room
     playlist = [@i_will_survive, @bohem_rhap, @final_countdown]
-    @test_venue.add_playlist_to_room(playlist, @room_of_10)
-    assert_equal(3, @room_of_10.playlist.count)
+    @test_venue.add_playlist_to_room(playlist, 1)
+    assert_equal(3, @test_venue.rooms[1].playlist.size)
   end
 
-  def test_can_check_in_parties_of_guests
-    test_party = [@alan, @barry]
-    @test_venue.add_party_to_room(test_party, @room_of_10)
-    assert_equal(2, @room_of_10.guests.count)
-  end
+  # def test_can_check_in_parties_of_guests
+  #   test_party = [@alan, @barry]
+  #   @test_venue.add_party_to_room(test_party, 1)
+  #   assert_equal(2, @test_venue.rooms[1].guests.count)
+  # end
 
 end
