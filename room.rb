@@ -43,5 +43,9 @@ class Room
     return @guests.map {|guest| guest.name}
   end
 
+  def remove_guest(guest)
+    @guests.delete(guest)
+  end
+
 
 end

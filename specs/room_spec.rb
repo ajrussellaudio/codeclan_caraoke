@@ -68,5 +68,11 @@ class TestRoom < MiniTest::Test
     assert_equal(["Alan Russell", "Marj Clark"], @test_room.guest_names)
   end
 
+  def test_it_can_remove_guest
+    @test_room.add_party([@alan, @marj])
+    @test_room.remove_guest(@alan)
+    assert_equal(1, @test_room.guests.count)
+  end
+
 
 end
