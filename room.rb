@@ -12,8 +12,8 @@ class Room
 
   def initialize(capacity)
     @capacity = capacity
-    @playlist = []
     @guests = []
+    @playlist = []
   end
 
   def add_song(song)

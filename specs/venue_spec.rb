@@ -57,10 +57,10 @@ class TestVenue < MiniTest::Test
     assert_equal(3, @test_venue.rooms[1].playlist.size)
   end
 
-  # def test_can_check_in_parties_of_guests
-  #   test_party = [@alan, @barry]
-  #   @test_venue.add_party_to_room(test_party, 1)
-  #   assert_equal(2, @test_venue.rooms[1].guests.count)
-  # end
+  def test_can_check_in_parties_of_guests
+    test_party = [@alan, @barry]
+    @test_venue.add_party_to_room(test_party, 1)
+    assert_equal(2, @test_venue.rooms[1].guests.count)
+  end
 
 end
