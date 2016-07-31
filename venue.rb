@@ -17,10 +17,11 @@ class Venue
   end
 
   def check_in(guest, room_index)
-    if guest.cash > @entry_fee && rooms[room_index].any_spaces_left?
-      rooms[room_index].add_guest(guest)
-      guest.cash -= @entry_fee
-    end
+    return "Not enough money!".red if guest.cash < @entry_fee
+    return "Room full!".red if !rooms[room_index].any_spaces_left?
+    rooms[room_index].add_guest(guest)
+    guest.cash -= @entry_fee
+    return "Complete!"
   end
 
   def check_out(guest, room_index)
